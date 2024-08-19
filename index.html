@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="title" content="Rayatiga" />
+        <meta name="description" content="Rayatiga is an IT agency providing web services like domain name reservation, static website development, WordPress website development, cloud service, server establishment, and other custom technology services. Free maintenance is included until the subscription ends." />
+        <meta name="keywords" content="Rayatiga, IT Agency, Web Services, Web Development, Domain Name, Server, Cloud" />
+        <title>Rayatiga</title>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <p>Header: Under Maintenance</p>
+                <p>Scheduled on date: July 20, 2024</p>
+            </header>
+            <main>
+                <div class="countdown">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+                    </svg>
+                    <br />
+                    <span data-script="countdown">00:00:00:00</span>
+                </div>
+                <h1>We'll be back soon!</h1>
+                <p>Sorry for the inconvenience. We're currently performing some maintenance. If you need to reach us, you can always contact us via <a href="mailto:contact@rayatiga.com" target="_blank">email</a>. Otherwise, we'll be back up shortly!</p>
+                <div class="credit">
+                    <p><span data-script="credit">The Rayatiga Team</span></p>
+                </div>
+            </main>
+            <footer>
+                <p>Maintenance site: <span data-script="site">rayatiga.com</span></p>
+                <p>Completed on date: <span data-script="completed">November 2, 2024</span></p>
+            </footer>
+            <button data-script="scheme">🌗</button>
+        </div>
+        <script>
+            updateCountdown = () => {
+                const completedTime = "November 2, 2024";
+
+                const now = new Date();
+                const targetDate = new Date(completedTime);
+                const distance = targetDate.getTime() - now.getTime();
+
+                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                days = days.toString().padStart(2, "0");
+                hours = hours.toString().padStart(2, "0");
+                minutes = minutes.toString().padStart(2, "0");
+                seconds = seconds.toString().padStart(2, "0");
+
+                const countdownString = days + ":" + hours + ":" + minutes + ":" + seconds;
+
+                const countdown = document.querySelector(`[data-script="countdown"]`);
+                countdown.innerHTML = countdownString;
+
+                if (distance < 0) {
+                    clearInterval(timer);
+                    countdown.innerHTML = "Time Expired";
+                }
+            };
+            const timer = setInterval(updateCountdown, 1000);
+            updateCountdown();
+
+            document.title = "Under Maintenance";
+
+            const schemeBtn = document.querySelector(`[data-script="scheme"]`);
+            schemeBtn.addEventListener("click", function () {
+                document.body.classList.toggle("adjust");
+            });
+        </script>
+    </body>
+</html>
